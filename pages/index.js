@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Form.module.css'
+import Rating from '../components/rating/Rating'
 
 export default function Home() {
   return (
@@ -16,63 +17,21 @@ export default function Home() {
 
           <form className={styles.form}>
             <div className={styles.formGroup}>
-              <label for="name">Name</label>
+              <label htmlFor="name">Name</label>
               <input type="text" id="name" name="name" placeholder="Enter your name" />
             </div>
 
             <div className={styles.formGroup}>
-              <label for="email">Email</label>
+              <label htmlFor="email">Email</label>
               <input type="email" id="email" name="email" placeholder="Enter your email" />
             </div>
 
             <div className={styles.formGroup}>
-              <label for="rating">Rating</label>
-              <div className={styles.checkboxContainer}>
-                <div className={styles.checkboxGroup}>
-                  <input type="radio" />
-                  <span className={styles.rating}>1</span>
-                </div>
-                <div className={styles.checkboxGroup}>
-                  <input type="radio" />
-                  <span className={styles.rating}>2</span>
-                </div>
-                <div className={styles.checkboxGroup}>
-                  <input type="radio" />
-                  <span className={styles.rating}>3</span>
-                </div>
-                <div className={styles.checkboxGroup}>
-                  <input type="radio" />
-                  <span className={styles.rating}>4</span>
-                </div>
-                <div className={styles.checkboxGroup}>
-                  <input type="radio" />
-                  <span className={styles.rating}>5</span>
-                </div>
-                <div className={styles.checkboxGroup}>
-                  <input type="radio" />
-                  <span className={styles.rating}>6</span>
-                </div>
-                <div className={styles.checkboxGroup}>
-                  <input type="radio" />
-                  <span className={styles.rating}>7</span>
-                </div>
-                <div className={styles.checkboxGroup}>
-                  <input type="radio" />
-                  <span className={styles.rating}>8</span>
-                </div>
-                <div className={styles.checkboxGroup}>
-                  <input type="radio" />
-                  <span className={styles.rating}>9</span>
-                </div>
-                <div className={styles.checkboxGroup}>
-                  <input type="radio" />
-                  <span className={styles.rating}>10</span>
-                </div>
-              </div>
+              <Rating />
             </div>
 
             <div className={styles.formGroup}>
-              <label for="message">Message</label>
+              <label htmlFor="message">Message</label>
               <textarea id="message" name="message" className={styles.message} placeholder="Enter your feedback message"></textarea>
             </div>
 

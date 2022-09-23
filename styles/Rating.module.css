@@ -1,0 +1,68 @@
+.checkboxContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+
+}
+
+.ratingBad {
+    background-color: #ff8c5a;
+}
+
+.hoverBad {
+    background-color: #fdbea2;
+}
+
+.ratingLow {
+    background-color: #ffb234;
+}
+
+.hoverLow {
+    background-color: #fcd18c;
+}
+
+.ratingMedium {
+    background-color: #ffd934;
+}
+
+.hoverMedium {
+    background-color: #ffeea4;
+}
+
+.ratingHigh {
+    background-color: #add633;
+}
+
+.hoverHigh {
+    background-color: #ddf792;
+}
+
+.ratingGood {
+    background-color: #a0c15a;
+}
+
+.hoverGood {
+    background-color: #bdda7f;
+}
