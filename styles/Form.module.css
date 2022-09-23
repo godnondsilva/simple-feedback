@@ -25,10 +25,15 @@
 }
 
 .message {
-  resize: vertical;
-  min-height: 50px;
-  max-height: 150px;
+  resize: none;
+
   font-family: Poppins;
+}
+
+.messageLength {
+  text-align: right;
+  font-size: 14px;
+  color: #888;
 }
 
 .submitButtonContainer {
