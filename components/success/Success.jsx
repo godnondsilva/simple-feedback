@@ -1,6 +1,6 @@
 import Lottie from 'react-lottie';
 import * as animationData from '../../data/success.json';
-import styles from '../../styles/Success.module.css';
+import styles from '../../styles/Global.module.css';
 
 const Success = ({ text }) => {
 	const defaultOptions = {
@@ -13,7 +13,7 @@ const Success = ({ text }) => {
 	};
 
 	return (
-		<div className={styles.successContainer}>
+		<div className={styles.container}>
 			<Lottie
 				options={defaultOptions}
 				className='lottie-animation'

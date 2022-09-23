@@ -1,6 +1,6 @@
 import Lottie from 'react-lottie';
 import * as animationData from '../../data/Loading.json';
-import styles from '../../styles/Loading.module.css';
+import styles from '../../styles/Global.module.css';
 
 const Loading = ({ text }) => {
 	const defaultOptions = {
@@ -13,7 +13,7 @@ const Loading = ({ text }) => {
 	};
 
 	return (
-		<div className={styles.loadingContainer}>
+		<div className={styles.container}>
 			<Lottie
 				options={defaultOptions}
 				className='lottie-animation'
