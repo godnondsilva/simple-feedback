@@ -23,10 +23,13 @@ export default function Home() {
       <Toaster />
       <div className={styles.container}>
         <div className={styles.formContainer}>
-          <h1>Simple Feedback Form</h1>
-          <p>Fill this form and tell us how you liked this application!</p>
+          <h1 className={styles.title}>Simple Feedback Form</h1>
           {currentView === 1 ? (
-            <Form currentView={currentView} setCurrentView={setCurrentView} setLoading={setLoading} />
+            !loading ? (
+              <Form currentView={currentView} setCurrentView={setCurrentView} setLoading={setLoading} />
+            ) : (
+              <Loading text='Submitting your information, please wait' />
+            )
           ) : currentView === 2 ? (
             !loading ? (
               <Success text='Thank you for your feedback!' />
@@ -34,7 +37,11 @@ export default function Home() {
               <Loading text='Submitting your information, please wait' />
             )
           ) : (
-            <Failed text="Your response didn't go through!" />
+            !loading ? (
+              <Failed text='Something went wrong, please try again' />
+            ) : (
+              <Loading text='Submitting your information, please wait' />
+            )
           )}
         </div>
       </div>

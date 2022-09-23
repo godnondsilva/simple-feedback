@@ -17,8 +17,8 @@ const Failed = ({ text }) => {
 			<Lottie
 				options={defaultOptions}
 				className='lottie-animation'
-				height={200}
-				width={200}
+				height={250}
+				width={250}
 				isStopped={false}
 				isPaused={false}
 			/>

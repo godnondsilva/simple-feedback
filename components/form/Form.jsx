@@ -25,6 +25,7 @@ const Form = ({ setCurrentView, setLoading }) => {
 		if (!validateRating(rating)) return toast.error('Please enter a rating');
 		if (!validateMessage(message))
 			return toast.error('Please enter a message between 2 and 80 characters');
+		setLoading(true);
 		fetch('/api/submit', {
 			method: 'POST',
 			headers: {
@@ -33,16 +34,15 @@ const Form = ({ setCurrentView, setLoading }) => {
 			},
 			body: JSON.stringify({ name, email, rating, message }),
 		})
-			.then(() => {
-				setName('');
-				setEmail('');
-				setRating(0);
-				setMessage('');
-				slideForm(2);
+			.then((dat) => {
+				console.log('dat', dat);
+				setLoading(false);
+				setCurrentView(2);
 			})
-			.catch(() => {
+			.catch((err) => {
+				console.log('err', err);
+				setLoading(false);
 				setCurrentView(3);
-				slideForm(3);
 			});
 	};
 
@@ -51,60 +51,55 @@ const Form = ({ setCurrentView, setLoading }) => {
 		setMessage(e.target.value);
 	};
 
-	const slideForm = (formID) => {
-		setCurrentView(formID);
-		setLoading(true);
-		setTimeout(() => {
-			setLoading(false);
-		}, 2000);
-	};
-
 	return (
-		<form className={styles.form} onSubmit={submit} noValidate>
-			<div className={styles.formGroup}>
-				<label htmlFor='name'>Name</label>
-				<input
-					type='text'
-					value={name}
-					onChange={(e) => setName(e.target.value)}
-					name='name'
-					placeholder='Enter your name'
-				/>
-			</div>
+		<>
+			<p>Fill this form and tell us how you liked this application!</p>
+			<form className={styles.form} onSubmit={submit} noValidate>
+				<div className={styles.formGroup}>
+					<label htmlFor='name'>Name</label>
+					<input
+						type='text'
+						value={name}
+						onChange={(e) => setName(e.target.value)}
+						name='name'
+						placeholder='Enter your name'
+					/>
+				</div>
 
-			<div className={styles.formGroup}>
-				<label htmlFor='email'>Email</label>
-				<input
-					type='email'
-					value={email}
-					onChange={(e) => setEmail(e.target.value)}
-					name='email'
-					placeholder='Enter your email'
-				/>
-			</div>
+				<div className={styles.formGroup}>
+					<label htmlFor='email'>Email</label>
+					<input
+						type='email'
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+						name='email'
+						placeholder='Enter your email'
+					/>
+				</div>
 
-			<div className={styles.formGroup}>
-				<Rating rating={rating} setRating={setRating} />
-			</div>
+				<div className={styles.formGroup}>
+					<Rating rating={rating} setRating={setRating} />
+				</div>
 
-			<div className={styles.formGroup}>
-				<label htmlFor='message'>Message</label>
-				<textarea
-					value={message}
-					onChange={handleMessageChange}
-					name='message'
-					className={styles.message}
-					placeholder='Enter your feedback message'
-				></textarea>
-				<span className={styles.messageLength}>{message.length}/80</span>
-			</div>
+				<div className={styles.formGroup}>
+					<label htmlFor='message'>Message</label>
+					<textarea
+						value={message}
+						onChange={handleMessageChange}
+						name='message'
+						className={styles.message}
+						placeholder='Enter your feedback message'
+					></textarea>
+					<span className={styles.messageLength}>{message.length}/80</span>
+				</div>
 
-			<div className={styles.submitButtonContainer}>
-				<button className={styles.submitButton} type='submit'>
-					Submit
-				</button>
-			</div>
-		</form>
+				<div className={styles.submitButtonContainer}>
+					<button className={styles.submitButton} type='submit'>
+						Submit
+					</button>
+				</div>
+			</form>
+		</>
 	);
 };
 
